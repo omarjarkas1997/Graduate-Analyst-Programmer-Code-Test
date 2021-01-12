@@ -295,7 +295,6 @@ def summary(filepath):
     plotCountriesCount(countries_os_and, countries_os_ios,india_IOS, indiaAnd, states, brands, top_countries,apple,samsung,huawei)
 
 def main():
-    
     # CLI argument parser
     parser = argparse.ArgumentParser()
 

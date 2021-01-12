@@ -1,0 +1,1972 @@
+[
+    {
+        "null": [
+            "\" Halfbricks Graduate Analyst Programmer Code Test\nPython CLI application that performs the following functions:\n\n    Input a CSV file and convert it to JSON\n    Input a CSV file and present a data summary\n    Input a CSV file and generate a SQL insert statement for all rows in the input\n\n    Created: 2021\n    Author: Omar Jarkas\n\""
+        ]
+    },
+    {
+        "null": [
+            "from PyInquirer import style_from_dict",
+            " Token",
+            " prompt",
+            " Separator"
+        ]
+    },
+    {
+        "null": [
+            "from pyfiglet import Figlet"
+        ]
+    },
+    {
+        "null": [
+            "import argparse"
+        ]
+    },
+    {
+        "null": [
+            "import os"
+        ]
+    },
+    {
+        "null": [
+            "import csv"
+        ]
+    },
+    {
+        "null": [
+            "import json"
+        ]
+    },
+    {
+        "null": [
+            "import pandas as pd"
+        ]
+    },
+    {
+        "null": [
+            "import matplotlib.pyplot as plt"
+        ]
+    },
+    {
+        "null": [
+            "style = style_from_dict({"
+        ]
+    },
+    {
+        "null": [
+            "    Token.Separator: '#cc5454'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    Token.QuestionMark: '#673ab7 bold'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    Token.Selected: '#cc5454'",
+            "  # default"
+        ]
+    },
+    {
+        "null": [
+            "    Token.Pointer: '#673ab7 bold'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    Token.Instruction: ''",
+            "  # default"
+        ]
+    },
+    {
+        "null": [
+            "    Token.Answer: '#f44336 bold'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    Token.Question: ''",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "})"
+        ]
+    },
+    {
+        "null": [
+            "questions = ["
+        ]
+    },
+    {
+        "null": [
+            "    {"
+        ]
+    },
+    {
+        "null": [
+            "        'type': 'checkbox'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "        'message': 'Select function:'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "        'name': 'function'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "        'choices': ["
+        ]
+    },
+    {
+        "null": [
+            "            Separator('= Functions =')",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "            {"
+        ]
+    },
+    {
+        "null": [
+            "                'key': 'a'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "                'name': 'Convert CSV to JSON'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "                'value': 'ConvertToJSON'"
+        ]
+    },
+    {
+        "null": [
+            "            }",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "            {"
+        ]
+    },
+    {
+        "null": [
+            "                'key': 'b'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "                'name': 'Present a data summary'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "                'value': 'DataSummary'"
+        ]
+    },
+    {
+        "null": [
+            "            }",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "            {"
+        ]
+    },
+    {
+        "null": [
+            "                'key': 'c'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "                'name': 'Generate a SQL insert statement for all rows in the input'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "                'value': 'SQLInsert'"
+        ]
+    },
+    {
+        "null": [
+            "            }"
+        ]
+    },
+    {
+        "null": [
+            "        ]",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "        'validate': lambda answer: 'You must choose at least one topping.' \\"
+        ]
+    },
+    {
+        "null": [
+            "            if len(answer['function']) == 0 else True"
+        ]
+    },
+    {
+        "null": [
+            "    }"
+        ]
+    },
+    {
+        "null": [
+            "]"
+        ]
+    },
+    {
+        "null": [
+            "def plotCountriesCount(countries_os_and",
+            " countries_os_ios",
+            " india_IOS",
+            " indiaAnd",
+            " states",
+            " brands",
+            " top_countries",
+            " apple",
+            " samsung",
+            " huawei):"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "    top_3_brands = ['Apple'",
+            "'Samsung'",
+            "'Huawei']"
+        ]
+    },
+    {
+        "null": [
+            "    plt.style.use('seaborn-dark-palette')"
+        ]
+    },
+    {
+        "null": [
+            "    fig = plt.figure()"
+        ]
+    },
+    {
+        "null": [
+            "    # Plot 1"
+        ]
+    },
+    {
+        "null": [
+            "    plt.subplot(2",
+            " 2",
+            " 1)"
+        ]
+    },
+    {
+        "null": [
+            "    # Setting the positions and width for the bars"
+        ]
+    },
+    {
+        "null": [
+            "    width = 0.25 "
+        ]
+    },
+    {
+        "null": [
+            "    pos_and = list(range(len(countries_os_and.keys())))"
+        ]
+    },
+    {
+        "null": [
+            "    pos_ios = [p - width for p in pos_and]"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "    # # Create a bar with andriod",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    # # in position pos",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar(pos_and",
+            " list(countries_os_and.values())",
+            " width",
+            " alpha=0.5",
+            " color='red'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "            label='andriod') "
+        ]
+    },
+    {
+        "null": [
+            "    # Create a bar with ios",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    # in position pos",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar(pos_ios",
+            " list(countries_os_ios.values())",
+            " width",
+            " alpha=0.5",
+            " color='blue'",
+            " label='IOS') "
+        ]
+    },
+    {
+        "null": [
+            "    # Placing the name in the plot"
+        ]
+    },
+    {
+        "null": [
+            "    plt.legend(loc='upper right')"
+        ]
+    },
+    {
+        "null": [
+            "    plt.xticks(pos_ios",
+            "countries_os_and.keys()",
+            " rotation=90)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.xlabel('Countries'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.ylabel('OS'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.title('ANDRIOD vs IOS in top frequent countries'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    # Plot 2"
+        ]
+    },
+    {
+        "null": [
+            "    plt.subplot(2",
+            " 2",
+            " 2)"
+        ]
+    },
+    {
+        "null": [
+            "    pos_india_and = list(range(len(india_IOS)))"
+        ]
+    },
+    {
+        "null": [
+            "    pos_india_ios = [p - width for p in pos_india_and]"
+        ]
+    },
+    {
+        "null": [
+            "    width = 0.25 "
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar(pos_india_and",
+            " list(indiaAnd.values())",
+            " width",
+            " alpha=0.5",
+            " color='green'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "        label='ANDROID') "
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar(pos_india_ios",
+            " list(india_IOS.values())",
+            " width",
+            " alpha=0.5",
+            " color='blue'",
+            ""
+        ]
+    },
+    {
+        "null": [
+            "        label='IOS') "
+        ]
+    },
+    {
+        "null": [
+            "    # Placing the name in the plot"
+        ]
+    },
+    {
+        "null": [
+            "    plt.legend(loc='upper right')"
+        ]
+    },
+    {
+        "null": [
+            "    plt.xlabel('States'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.ylabel('OS'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.title('ANDRIOD vs IOS accross different states in India'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.xticks(pos_india_and",
+            "states",
+            " rotation=90)"
+        ]
+    },
+    {
+        "null": [
+            "    # Plot 3"
+        ]
+    },
+    {
+        "null": [
+            "    plt.subplot(2",
+            " 2",
+            " 3)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.pie(brands.values()",
+            " labels = brands.keys()",
+            " autopct='%1.1f%%'",
+            " shadow=True",
+            " startangle=90)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.title('Percentage of Phone Brands Accross different Countries'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    # Plot 4"
+        ]
+    },
+    {
+        "null": [
+            "    plt.subplot(2",
+            " 2",
+            " 4)"
+        ]
+    },
+    {
+        "null": [
+            "    pos = list(range(len(top_countries.keys()))) "
+        ]
+    },
+    {
+        "null": [
+            "    width = 0.25 "
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar(pos",
+            "  apple",
+            " width",
+            "  alpha=0.5",
+            "  color='#EE3224'",
+            " label=top_3_brands[0]) "
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar([p + width for p in pos]",
+            " samsung",
+            "width",
+            " alpha=0.5",
+            " color='#F78F1E'",
+            " label=top_3_brands[1]) "
+        ]
+    },
+    {
+        "null": [
+            "    plt.bar([p + width*2 for p in pos]",
+            " huawei",
+            " width",
+            " alpha=0.5",
+            " color='#FFC222'",
+            " label=top_3_brands[2]) "
+        ]
+    },
+    {
+        "null": [
+            "    plt.grid()"
+        ]
+    },
+    {
+        "null": [
+            "    plt.xlabel('Countries'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.ylabel('Number of Phones'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.title('Top Phone Brands in top frequent countries'",
+            " fontsize=12)"
+        ]
+    },
+    {
+        "null": [
+            "    plt.legend(top_3_brands",
+            " loc='upper right')"
+        ]
+    },
+    {
+        "null": [
+            "    plt.xticks([p + width for p in pos]",
+            "top_countries.keys())"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "    plt.tight_layout()"
+        ]
+    },
+    {
+        "null": [
+            "    mng = plt.get_current_fig_manager()"
+        ]
+    },
+    {
+        "null": [
+            "    mng.window.state(\"iconic\")"
+        ]
+    },
+    {
+        "null": [
+            "    fig.set_constrained_layout_pads(wspace=0",
+            " hspace=0",
+            " w_pad=0",
+            " h_pad=0)"
+        ]
+    },
+    {
+        "null": [
+            "    fig.savefig(\"Summary.png\")"
+        ]
+    },
+    {
+        "null": [
+            "    plt.show()"
+        ]
+    },
+    {
+        "null": [
+            "    print('==================================')"
+        ]
+    },
+    {
+        "null": [
+            "    print('Summary.png has been saved under this directory')"
+        ]
+    },
+    {
+        "null": [
+            "    print('===================================')"
+        ]
+    },
+    {
+        "null": [
+            "def getUniqOS(df):"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\" Based on the df if it contains a columns named devices os it will return unique attributes of the column"
+        ]
+    },
+    {
+        "null": [
+            "    >>> df = pd.read_csv(r\"../data.csv\")"
+        ]
+    },
+    {
+        "null": [
+            "    >>> getUniqOS(df)"
+        ]
+    },
+    {
+        "null": [
+            "    ['ANDROID'",
+            " 'IOS']"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    # getting a unique list of the countries"
+        ]
+    },
+    {
+        "null": [
+            "    os = df.device_os.unique().tolist()"
+        ]
+    },
+    {
+        "null": [
+            "    # sort list alphabatically"
+        ]
+    },
+    {
+        "null": [
+            "    return sorted(os)"
+        ]
+    },
+    {
+        "null": [
+            "def getUniqCountries(df):"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    >>> df = pd.read_csv(r'../data.csv')"
+        ]
+    },
+    {
+        "null": [
+            "    >>> getUniqCountries(df)"
+        ]
+    },
+    {
+        "null": [
+            "    ['Angola'",
+            " 'Aruba'",
+            " 'Belize'",
+            " 'Benin'",
+            " 'Bhutan'",
+            " 'Brazil'",
+            " 'Chad'",
+            " 'Chile'",
+            " 'China'",
+            " 'Cuba'",
+            " 'Egypt'",
+            " 'Fiji'",
+            " 'Gabon'",
+            " 'Ghana'",
+            " 'Guam'",
+            " 'Haiti'",
+            " 'India'",
+            " 'Iran'",
+            " 'Iraq'",
+            " 'Italy'",
+            " 'Japan'",
+            " 'Kenya'",
+            " 'Laos'",
+            " 'Libya'",
+            " 'Macao'",
+            " 'Mali'",
+            " 'Malta'",
+            " 'Nepal'",
+            " 'Niger'",
+            " 'Oman'",
+            " 'Peru'",
+            " 'Qatar'",
+            " 'Spain'",
+            " 'Sudan'",
+            " 'Syria'",
+            " 'Togo'",
+            " 'Yemen']"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    # getting a unique list of the countries"
+        ]
+    },
+    {
+        "null": [
+            "    countries_uniq_list = df.geo_country.unique().tolist()"
+        ]
+    },
+    {
+        "null": [
+            "    # delete the \"nan\""
+        ]
+    },
+    {
+        "null": [
+            "    del countries_uniq_list[0]"
+        ]
+    },
+    {
+        "null": [
+            "    # sort list alphabatically"
+        ]
+    },
+    {
+        "null": [
+            "    return sorted(countries_uniq_list)"
+        ]
+    },
+    {
+        "null": [
+            "def getCountriesCountOSDictionary(countries_count_per_os",
+            " countries_uniq_list",
+            " os):"
+        ]
+    },
+    {
+        "null": [
+            "    countries_os_count = countries_count_per_os.loc[:",
+            " os]"
+        ]
+    },
+    {
+        "null": [
+            "    dict1 = {}"
+        ]
+    },
+    {
+        "null": [
+            "    for x in countries_uniq_list:"
+        ]
+    },
+    {
+        "null": [
+            "        if x in countries_os_count:"
+        ]
+    },
+    {
+        "null": [
+            "            dict1[x] = countries_os_count[x]"
+        ]
+    },
+    {
+        "null": [
+            "        else:"
+        ]
+    },
+    {
+        "null": [
+            "            dict1[x] = 0"
+        ]
+    },
+    {
+        "null": [
+            "    return dict1"
+        ]
+    },
+    {
+        "null": [
+            "def getMobileCountAccoutOSAccrossStates(countries_count_per_os",
+            " countries_uniq_list):"
+        ]
+    },
+    {
+        "null": [
+            "    dict1 = {}"
+        ]
+    },
+    {
+        "null": [
+            "    for x in countries_uniq_list:"
+        ]
+    },
+    {
+        "null": [
+            "        if x in countries_count_per_os:"
+        ]
+    },
+    {
+        "null": [
+            "            dict1[x] = countries_count_per_os[x]"
+        ]
+    },
+    {
+        "null": [
+            "        else:"
+        ]
+    },
+    {
+        "null": [
+            "            dict1[x] = 0"
+        ]
+    },
+    {
+        "null": [
+            "    return dict1"
+        ]
+    },
+    {
+        "null": [
+            "def indiaStates(df):"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    >>> import pandas as pd"
+        ]
+    },
+    {
+        "null": [
+            "    >>> df = pd.read_csv(r'../data.csv')"
+        ]
+    },
+    {
+        "null": [
+            "    >>> indiaStates(df)"
+        ]
+    },
+    {
+        "null": [
+            "    ({'Telangana': 13",
+            " 'Maharashtra': 24",
+            " 'Uttar Pradesh': 3",
+            " 'Gujarat': 16",
+            " 'Tamil Nadu': 18",
+            " 'Chandigarh': 8",
+            " 'West Bengal': 5",
+            " 'Kerala': 5",
+            " 'Haryana': 3",
+            " 'Rajasthan': 4",
+            " 'Madhya Pradesh': 1",
+            " 'Assam': 0",
+            " 'Jammu and Kashmir': 0",
+            " 'Uttarakhand': 1",
+            " 'Delhi': 22",
+            " 'Odisha': 0",
+            " 'Himachal Pradesh': 0",
+            " 'Punjab': 2",
+            " 'Bihar': 2",
+            " 'Chhattisgarh': 0",
+            " 'Karnataka': 11",
+            " 'Andhra Pradesh': 4",
+            " 'Goa': 0",
+            " 'Sikkim': 0",
+            " 'Jharkhand': 0",
+            " 'Tripura': 0",
+            " 'Puducherry': 0",
+            " 'Manipur': 0",
+            " 'Meghalaya': 0}",
+            " {'Telangana': 413",
+            " 'Maharashtra': 459",
+            " 'Uttar Pradesh': 225",
+            " 'Gujarat': 322",
+            " 'Tamil Nadu': 482",
+            " 'Chandigarh': 102",
+            " 'West Bengal': 142",
+            " 'Kerala': 94",
+            " 'Haryana': 54",
+            " 'Rajasthan': 116",
+            " 'Madhya Pradesh': 125",
+            " 'Assam': 40",
+            " 'Jammu and Kashmir': 6",
+            " 'Uttarakhand': 22",
+            " 'Delhi': 369",
+            " 'Odisha': 45",
+            " 'Himachal Pradesh': 9",
+            " 'Punjab': 46",
+            " 'Bihar': 76",
+            " 'Chhattisgarh': 9",
+            " 'Karnataka': 222",
+            " 'Andhra Pradesh': 73",
+            " 'Goa': 3",
+            " 'Sikkim': 0",
+            " 'Jharkhand': 13",
+            " 'Tripura': 11",
+            " 'Puducherry': 4",
+            " 'Manipur': 1",
+            " 'Meghalaya': 1}",
+            " ['Telangana'",
+            " 'Maharashtra'",
+            " 'Uttar Pradesh'",
+            " 'Gujarat'",
+            " 'Tamil Nadu'",
+            " 'Chandigarh'",
+            " 'West Bengal'",
+            " 'Kerala'",
+            " 'Haryana'",
+            " 'Rajasthan'",
+            " 'Madhya Pradesh'",
+            " 'Assam'",
+            " 'Jammu and Kashmir'",
+            " 'Uttarakhand'",
+            " 'Delhi'",
+            " 'Odisha'",
+            " 'Himachal Pradesh'",
+            " 'Punjab'",
+            " 'Bihar'",
+            " 'Chhattisgarh'",
+            " 'Karnataka'",
+            " 'Andhra Pradesh'",
+            " 'Goa'",
+            " 'Sikkim'",
+            " 'Jharkhand'",
+            " 'Tripura'",
+            " 'Puducherry'",
+            " 'Manipur'",
+            " 'Meghalaya'])"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    india_df = df[df.geo_country==\"India\"]"
+        ]
+    },
+    {
+        "null": [
+            "    india_df.groupby(['device_category'",
+            "'geo_region']).device_brand_name.count()"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "    # Andriod moblie count accross different states in india"
+        ]
+    },
+    {
+        "null": [
+            "    india_mobile_andriod = india_df[india_df.device_category==\"mobile\"][india_df.device_os==\"ANDROID\"]"
+        ]
+    },
+    {
+        "null": [
+            "    india_mobile_and_count = india_mobile_andriod.groupby(['geo_region']).device_brand_name.count()"
+        ]
+    },
+    {
+        "null": [
+            "    # IOS mobile count accross different state in india"
+        ]
+    },
+    {
+        "null": [
+            "    india_mobile_ios = india_df[india_df.device_category==\"mobile\"][india_df.device_os==\"IOS\"]"
+        ]
+    },
+    {
+        "null": [
+            "    india_mobile_ios_count = india_mobile_ios.groupby(['geo_region']).device_brand_name.count()"
+        ]
+    },
+    {
+        "null": [
+            "    india_uniq_states = india_df.geo_region.unique().tolist()"
+        ]
+    },
+    {
+        "null": [
+            "    del india_uniq_states[-3]"
+        ]
+    },
+    {
+        "null": [
+            "    ios_india_state_count = getMobileCountAccoutOSAccrossStates(india_mobile_ios_count",
+            "india_uniq_states)"
+        ]
+    },
+    {
+        "null": [
+            "    and_india_state_count = getMobileCountAccoutOSAccrossStates(india_mobile_and_count",
+            "india_uniq_states)"
+        ]
+    },
+    {
+        "null": [
+            "    return ios_india_state_count",
+            " and_india_state_count",
+            " india_uniq_states"
+        ]
+    },
+    {
+        "null": [
+            "def phone_brands(df):"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    >>> import pandas as pd"
+        ]
+    },
+    {
+        "null": [
+            "    >>> df = pd.read_csv(r'../data.csv')"
+        ]
+    },
+    {
+        "null": [
+            "    >>> phone_brands(df)"
+        ]
+    },
+    {
+        "null": [
+            "    {'others': 1912",
+            " 'Huawei': 1977",
+            " 'LG': 622",
+            " 'Apple': 2910",
+            " 'Xiaomi': 1491",
+            " 'Samsung': 4738",
+            " 'Motorola': 584",
+            " 'OPPO': 542",
+            " 'Vivo': 575}"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    brands = {}"
+        ]
+    },
+    {
+        "null": [
+            "    brands['others'] = 0"
+        ]
+    },
+    {
+        "null": [
+            "    # get unique devices"
+        ]
+    },
+    {
+        "null": [
+            "    uniq_phone_brands = df.device_brand_name.unique().tolist()"
+        ]
+    },
+    {
+        "null": [
+            "    for x in uniq_phone_brands:"
+        ]
+    },
+    {
+        "null": [
+            "        if df[df.device_brand_name==x].device_brand_name.count() > 300:"
+        ]
+    },
+    {
+        "null": [
+            "            brands[x] = df[df.device_brand_name==x].device_brand_name.count()"
+        ]
+    },
+    {
+        "null": [
+            "        else:"
+        ]
+    },
+    {
+        "null": [
+            "            brands['others'] = brands['others'] + df[df.device_brand_name==x].device_brand_name.count()"
+        ]
+    },
+    {
+        "null": [
+            "        "
+        ]
+    },
+    {
+        "null": [
+            "    return brands"
+        ]
+    },
+    {
+        "null": [
+            "def topBrandsandCountries(df",
+            " countries_unique):"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    >>> import pandas as pd"
+        ]
+    },
+    {
+        "null": [
+            "    >>> df = pd.read_csv(r'../data.csv')"
+        ]
+    },
+    {
+        "null": [
+            "    >>> topBrandsandCountries(df",
+            " ['Angola'",
+            " 'Aruba'",
+            " 'Belize'",
+            " 'Benin'",
+            " 'Bhutan'",
+            " 'Brazil'",
+            " 'Chad'",
+            " 'Chile'",
+            " 'China'",
+            " 'Cuba'",
+            " 'Egypt'",
+            " 'Fiji'",
+            " 'Gabon'",
+            " 'Ghana'",
+            " 'Guam'",
+            " 'Haiti'",
+            " 'India'",
+            " 'Iran'",
+            " 'Iraq'",
+            " 'Italy'",
+            " 'Japan'",
+            " 'Kenya'",
+            " 'Laos'",
+            " 'Libya'",
+            " 'Macao'",
+            " 'Mali'",
+            " 'Malta'",
+            " 'Nepal'",
+            " 'Niger'",
+            " 'Oman'",
+            " 'Peru'",
+            " 'Qatar'",
+            " 'Spain'",
+            " 'Sudan'",
+            " 'Syria'",
+            " 'Togo'",
+            " 'Yemen'])"
+        ]
+    },
+    {
+        "null": [
+            "    ({'Brazil': 2245",
+            " 'Chile': 848",
+            " 'China': 2390",
+            " 'Egypt': 977",
+            " 'India': 3855",
+            " 'Italy': 1996",
+            " 'Spain': 1172}",
+            " [72",
+            " 70",
+            " 1478",
+            " 50",
+            " 214",
+            " 438",
+            " 205]",
+            " [1161",
+            " 377",
+            " 30",
+            " 338",
+            " 1041",
+            " 708",
+            " 351]",
+            " [1",
+            " 192",
+            " 273",
+            " 231",
+            " 114",
+            " 606",
+            " 254])"
+        ]
+    },
+    {
+        "null": [
+            "    \"\"\""
+        ]
+    },
+    {
+        "null": [
+            "    top_countries = {}"
+        ]
+    },
+    {
+        "null": [
+            "    for x in countries_unique:"
+        ]
+    },
+    {
+        "null": [
+            "        if df[df.geo_country==x].device_brand_name.count() > 500:"
+        ]
+    },
+    {
+        "null": [
+            "            top_countries[x] = df[df.geo_country==x].device_brand_name.count()"
+        ]
+    },
+    {
+        "null": [
+            "    top_3_brands = ['Apple'",
+            "'Samsung'",
+            "'Huawei']"
+        ]
+    },
+    {
+        "null": [
+            "    apple = []"
+        ]
+    },
+    {
+        "null": [
+            "    samsung = []"
+        ]
+    },
+    {
+        "null": [
+            "    huawei = []"
+        ]
+    },
+    {
+        "null": [
+            "    for x in top_countries.keys():"
+        ]
+    },
+    {
+        "null": [
+            "        apple.append(df[df.geo_country==x][df.device_brand_name==top_3_brands[0]].device_brand_name.count())"
+        ]
+    },
+    {
+        "null": [
+            "        samsung.append(df[df.geo_country==x][df.device_brand_name==top_3_brands[1]].device_brand_name.count())"
+        ]
+    },
+    {
+        "null": [
+            "        huawei.append(df[df.geo_country==x][df.device_brand_name==top_3_brands[2]].device_brand_name.count()) "
+        ]
+    },
+    {
+        "null": [
+            "    return top_countries",
+            "apple",
+            "samsung",
+            "huawei"
+        ]
+    },
+    {
+        "null": [
+            "def get_countries_os_and(df",
+            " country_uniq",
+            " os):"
+        ]
+    },
+    {
+        "null": [
+            "    countries_os_and = {}"
+        ]
+    },
+    {
+        "null": [
+            "    for x in country_uniq:"
+        ]
+    },
+    {
+        "null": [
+            "        count_os_per_country_and = df[df.geo_country==x][df.device_os==os[0]].device_os.count()"
+        ]
+    },
+    {
+        "null": [
+            "        if count_os_per_country_and > 50:"
+        ]
+    },
+    {
+        "null": [
+            "            countries_os_and[x] = count_os_per_country_and"
+        ]
+    },
+    {
+        "null": [
+            "    return countries_os_and"
+        ]
+    },
+    {
+        "null": [
+            "def get_countries_os_ios(df",
+            " countries_os_and",
+            " os):"
+        ]
+    },
+    {
+        "null": [
+            "    countries_os_ios = {}"
+        ]
+    },
+    {
+        "null": [
+            "    for x in countries_os_and.keys():"
+        ]
+    },
+    {
+        "null": [
+            "        count_os_per_country_ios = df[df.geo_country==x][df.device_os==os[1]].device_os.count()"
+        ]
+    },
+    {
+        "null": [
+            "        countries_os_ios[x] = count_os_per_country_ios"
+        ]
+    },
+    {
+        "null": [
+            "    return countries_os_ios"
+        ]
+    },
+    {
+        "null": [
+            "def summary(filepath):"
+        ]
+    },
+    {
+        "null": [
+            "    # Using panda to read the csv file and insert it into a dataframe"
+        ]
+    },
+    {
+        "null": [
+            "    df = pd.read_csv(filepath)"
+        ]
+    },
+    {
+        "null": [
+            "    # get a list of unique countries"
+        ]
+    },
+    {
+        "null": [
+            "    countries_uniq_list = getUniqCountries(df)"
+        ]
+    },
+    {
+        "null": [
+            "    os_uniq = getUniqOS(df)"
+        ]
+    },
+    {
+        "null": [
+            "    countries_os_and = get_countries_os_and(df",
+            " countries_uniq_list",
+            " os_uniq)"
+        ]
+    },
+    {
+        "null": [
+            "    countries_os_ios = get_countries_os_ios(df",
+            " countries_os_and",
+            " os_uniq)"
+        ]
+    },
+    {
+        "null": [
+            "    india_IOS",
+            " indiaAnd",
+            " states = indiaStates(df)"
+        ]
+    },
+    {
+        "null": [
+            "    brands = phone_brands(df)"
+        ]
+    },
+    {
+        "null": [
+            "    top_countries",
+            "apple",
+            "samsung",
+            "huawei = topBrandsandCountries(df",
+            " countries_uniq_list)"
+        ]
+    },
+    {
+        "null": [
+            "    plotCountriesCount(countries_os_and",
+            " countries_os_ios",
+            "india_IOS",
+            " indiaAnd",
+            " states",
+            " brands",
+            " top_countries",
+            "apple",
+            "samsung",
+            "huawei)"
+        ]
+    },
+    {
+        "null": [
+            "def main():"
+        ]
+    },
+    {
+        "null": [
+            "    # CLI argument parser"
+        ]
+    },
+    {
+        "null": [
+            "    parser = argparse.ArgumentParser()"
+        ]
+    },
+    {
+        "null": [
+            "    # adding a mutually exclusive group"
+        ]
+    },
+    {
+        "null": [
+            "    group = parser.add_mutually_exclusive_group()"
+        ]
+    },
+    {
+        "null": [
+            "    group.add_argument('-v'",
+            "--verbose",
+            " action=\"store_true\")"
+        ]
+    },
+    {
+        "null": [
+            "    group.add_argument('-q'",
+            "'--quit'",
+            " action=\"store_true\")"
+        ]
+    },
+    {
+        "null": [
+            "     # adding an argument of type int and saving it in num variable place holder"
+        ]
+    },
+    {
+        "null": [
+            "    parser.add_argument("
+        ]
+    },
+    {
+        "null": [
+            "        \"filepath\"",
+            " help=\"The CSV File path the contain that data to be transformed\"",
+            " type=str)"
+        ]
+    },
+    {
+        "null": [
+            "    # adding an option to output the result in a file"
+        ]
+    },
+    {
+        "null": [
+            "    parser.add_argument("
+        ]
+    },
+    {
+        "null": [
+            "        \"-o\"",
+            " \"--output\"",
+            " help=\"output result to a file\"",
+            " action=\"store_true\")"
+        ]
+    },
+    {
+        "null": [
+            "     "
+        ]
+    },
+    {
+        "null": [
+            "    # Grabbing the argument from the command line"
+        ]
+    },
+    {
+        "null": [
+            "    args = parser.parse_args()"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "    filepath = args.filepath"
+        ]
+    },
+    {
+        "null": [
+            "    # CLI choose option using PyInquirer"
+        ]
+    },
+    {
+        "null": [
+            "    chooseOption(filepath)"
+        ]
+    },
+    {
+        "null": [
+            "    "
+        ]
+    },
+    {
+        "null": [
+            "def chooseOption(filepath):"
+        ]
+    },
+    {
+        "null": [
+            "    while True:"
+        ]
+    },
+    {
+        "null": [
+            "        # converting strings into ASCII Text with arts fonts using Pyfiglet"
+        ]
+    },
+    {
+        "null": [
+            "        f = Figlet(font='slant')"
+        ]
+    },
+    {
+        "null": [
+            "        print(f.renderText('Python CLI Appliction'))"
+        ]
+    },
+    {
+        "null": [
+            "        answers = prompt(questions",
+            " style=style)"
+        ]
+    },
+    {
+        "null": [
+            "        # if no choice entered by the user loop over"
+        ]
+    },
+    {
+        "null": [
+            "        if  len(answers['function']) == 0:"
+        ]
+    },
+    {
+        "null": [
+            "            os. system('cls')"
+        ]
+    },
+    {
+        "null": [
+            "            print('-------------------- You have to choose atleast one! --------------------\\n\\n')"
+        ]
+    },
+    {
+        "null": [
+            "        else: # if atleat one choice was entered"
+        ]
+    },
+    {
+        "null": [
+            "            # Enter logic for choice here"
+        ]
+    },
+    {
+        "null": [
+            "            print(answers)"
+        ]
+    },
+    {
+        "null": [
+            "            choiceLogic(answers",
+            " filepath)"
+        ]
+    },
+    {
+        "null": [
+            "            break"
+        ]
+    },
+    {
+        "null": [
+            "def choiceLogic(answers",
+            " filepath):"
+        ]
+    },
+    {
+        "null": [
+            "    print(\"Inside the choiceLogic\")"
+        ]
+    },
+    {
+        "null": [
+            "    for x in answers['function']:"
+        ]
+    },
+    {
+        "null": [
+            "        if x == 'ConvertToJSON':"
+        ]
+    },
+    {
+        "null": [
+            "            print(\"The choice is \"+str(x))"
+        ]
+    },
+    {
+        "null": [
+            "            convertToJson(filepath)"
+        ]
+    },
+    {
+        "null": [
+            "        elif x == 'DataSummary':"
+        ]
+    },
+    {
+        "null": [
+            "            summary(filepath)"
+        ]
+    },
+    {
+        "null": [
+            "        elif x == 'SQLInsert':"
+        ]
+    },
+    {
+        "null": [
+            "            sqlconvert(filepath)"
+        ]
+    },
+    {
+        "null": [
+            "        else:"
+        ]
+    },
+    {
+        "null": [
+            "            print('Error: Choice feild is incorrect')"
+        ]
+    },
+    {
+        "null": [
+            "def convertToJson(filepath):"
+        ]
+    },
+    {
+        "null": [
+            "    # json array convert from python dictionary place holder"
+        ]
+    },
+    {
+        "null": [
+            "    jsonArray = []"
+        ]
+    },
+    {
+        "null": [
+            "    # open csv file as csvfile and convert it into a python dictory list object"
+        ]
+    },
+    {
+        "null": [
+            "    with open(filepath",
+            " encoding='utf-8') as csvfile:"
+        ]
+    },
+    {
+        "null": [
+            "        csvReader = csv.DictReader(csvfile)"
+        ]
+    },
+    {
+        "null": [
+            "        # getting the name of the file"
+        ]
+    },
+    {
+        "null": [
+            "        filename = os.path.basename(filepath).split('.')[0]"
+        ]
+    },
+    {
+        "null": [
+            "        # creates a file under the current directory with the name of the file"
+        ]
+    },
+    {
+        "null": [
+            "        jsonfile =  open(\"./\"+filename+\".json\"",
+            " 'w+'",
+            " encoding='utf-8')"
+        ]
+    },
+    {
+        "null": [
+            "        for row in csvReader:"
+        ]
+    },
+    {
+        "null": [
+            "            jsonArray.append(row)"
+        ]
+    },
+    {
+        "null": [
+            "        jsonfile.write(json.dumps(jsonArray",
+            "indent=4))"
+        ]
+    },
+    {
+        "null": [
+            "        jsonfile.close()"
+        ]
+    },
+    {
+        "null": [
+            "    print('==================================')"
+        ]
+    },
+    {
+        "null": [
+            "    print(filename+'.json has been saved under this directory')"
+        ]
+    },
+    {
+        "null": [
+            "    print('===================================')"
+        ]
+    },
+    {
+        "null": [
+            "def sqlconvert(filename):"
+        ]
+    },
+    {
+        "null": [
+            "    data  = pd.read_csv(filename)"
+        ]
+    },
+    {
+        "null": [
+            "    columns_name = []"
+        ]
+    },
+    {
+        "null": [
+            "    # iterating the columns "
+        ]
+    },
+    {
+        "null": [
+            "    for col in data.columns: "
+        ]
+    },
+    {
+        "null": [
+            "        columns_name.append(col)"
+        ]
+    },
+    {
+        "null": [
+            "    columns_name_str = str(columns_name).replace('['",
+            "'').replace(']'",
+            "'')"
+        ]
+    },
+    {
+        "null": [
+            "    filename = os.path.basename(filename).split('.')[0]"
+        ]
+    },
+    {
+        "null": [
+            "    sqlfile =  open(\"./\"+filename+\".sql\"",
+            " 'w+'",
+            " encoding='utf-8')"
+        ]
+    },
+    {
+        "null": [
+            "    for x in range(0",
+            "len(data)):"
+        ]
+    },
+    {
+        "null": [
+            "        values = []"
+        ]
+    },
+    {
+        "null": [
+            "        for y in data.iloc[x]:"
+        ]
+    },
+    {
+        "null": [
+            "            values.append(y)"
+        ]
+    },
+    {
+        "null": [
+            "        values_str = str(values).replace('['",
+            "'').replace(']'",
+            "'')"
+        ]
+    },
+    {
+        "null": [
+            "        stmt = \"INSERT INTO employees (\"+str(columns_name_str)+\") VALUES (\"+values_str+\");\\n\\n\""
+        ]
+    },
+    {
+        "null": [
+            "        sqlfile.write(stmt)"
+        ]
+    },
+    {
+        "null": [
+            "    sqlfile.close()"
+        ]
+    },
+    {
+        "null": [
+            "    print('==================================')"
+        ]
+    },
+    {
+        "null": [
+            "    print(filename+'.sql has been saved under this directory')"
+        ]
+    },
+    {
+        "null": [
+            "    print('===================================')"
+        ]
+    },
+    {
+        "null": [
+            "main()"
+        ]
+    }
+]
