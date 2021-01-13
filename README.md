@@ -13,21 +13,23 @@ WARNING: Testing cannot be run if your install for PyPi.
 
 2. The application has a PyPi Distribution you can install from.
 ```pip command
-pip install GradAnalystCodeTest==0.1.0
+pip install GradAnalystCodeTest==0.1.2
 ```
 
 3. The application is fully dockerize.
 refer to the docker file under the root directory.
 To run Docker File:
-- ```docker ps```
-
+- ```docker build -t my-python-app .```
+- ```docker run -it --rm --name my-running-app my-python-app```
+Then you'll be promted a shell, enter the following:
+```halfbricks -o data.csv ```
 
 ## Installation
 
-Use the package manager [pip](https://pypi.org/project/GradAnalystCodeTest/0.1.0/) to install GradAnalystCodeTest Application.
+Use the package manager [pip](https://pypi.org/project/GradAnalystCodeTest/0.1.2/) to install GradAnalystCodeTest Application.
 
 ```pip command
-pip install GradAnalystCodeTest==0.1.0
+pip install GradAnalystCodeTest==0.1.2
 ```
 
 usage:``` halfbricks [-h] [-v | -q] [-o] filepath```
@@ -38,11 +40,21 @@ Make sure to use it on python 3 versions
 There are 3 ways to use the application:
 
 - Install from PyPi distributed
-    ```pip install GradAnalystCodeTest==0.1.0```
+    ```pip install GradAnalystCodeTest==0.1.2```
+
 - Clone from git 
     ``` git clone https://github.com/omarjarkas1997/Graduate-Analyst-Programmer-Code-Test.git```
     ```python .\app\app.py -o <CSV-File_Path>```
 - Docker
+
+Under the root directory where the docker file in contained run the following command the get a root shell of ubuntu linux the lastest verision
+- ```docker build -t my-python-app .```
+- ```docker run -it --rm --name my-running-app my-python-app```
+
+When inside the docker linux shell run the following command (data.csv file has been moved to the docker file as well) to access the application
+
+- ```halfbricks -o data.csv ```
+
 
 ## CLI Arguments
 
@@ -50,6 +62,12 @@ There are 3 ways to use the application:
 Argument and Option you can pass to the CLI Application
 Installed from git: ```usage: app.py [-h] [-v | -q] [-o] filepath``` 
 Installed by PyPi: ```usage: halfbricks [-h] [-v | -q] [-o] filepath```
+Docker Shell: ```usage: halfbricks [-h] [-v | -q] [-o] data.csv```
+
+For more command enter 
+    Installed from git: ```app.py --help``` 
+    Installed by PyPi: ```halfbricks --help```
+    Docker Shell: ```halfbricks --help```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

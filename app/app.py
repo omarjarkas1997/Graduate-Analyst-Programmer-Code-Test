@@ -129,8 +129,6 @@ def plotCountriesCount(countries_os_and, countries_os_ios, india_IOS, indiaAnd, 
     
 
     plt.tight_layout()
-    mng = plt.get_current_fig_manager()
-    mng.window.state("iconic")
     fig.set_constrained_layout_pads(wspace=0, hspace=0, w_pad=0, h_pad=0)
     fig.savefig("Summary.png")
 
@@ -332,16 +330,13 @@ def chooseOption(filepath):
             print('-------------------- You have to choose atleast one! --------------------\n\n')
         else: # if atleat one choice was entered
             # Enter logic for choice here
-            print(answers)
             choiceLogic(answers, filepath)
             break
 
 
 def choiceLogic(answers, filepath):
-    print("Inside the choiceLogic")
     for x in answers['function']:
         if x == 'ConvertToJSON':
-            print("The choice is "+str(x))
             convertToJson(filepath)
         elif x == 'DataSummary':
             summary(filepath)

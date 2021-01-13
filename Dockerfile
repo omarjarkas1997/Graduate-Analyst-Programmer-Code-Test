@@ -1,10 +1,10 @@
-FROM python:3
 
-WORKDIR /usr/src/app
+FROM ubuntu:latest
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update -y
+RUN apt-get install -y python3
+RUN apt-get install python3-pip -y
 
 COPY . .
-
-CMD [ "python", "./your-daemon-or-script.py" ]
+COPY data.csv .
+RUN pip3 install GradAnalystCodeTest==0.1.2

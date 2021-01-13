@@ -15,7 +15,7 @@ with open("README.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name='GradAnalystCodeTest',
-    version='0.1.0',
+    version='0.1.2',
     description='GradAnalystCodeTest is a python cli application that take a CSV file as a command argument with various options and manipulates data in various forms',
     long_description=long_description,
     long_description_content_type="text/markdown",
