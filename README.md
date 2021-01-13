@@ -40,11 +40,11 @@ Make sure to use it on python 3 versions
 There are 3 ways to use the application:
 
 - Install from PyPi distributed
-    ```pip install GradAnalystCodeTest==0.1.2```
+    - ```pip install GradAnalystCodeTest==0.1.2```
 
 - Clone from git 
-    ``` git clone https://github.com/omarjarkas1997/Graduate-Analyst-Programmer-Code-Test.git```
-    ```python .\app\app.py -o <CSV-File_Path>```
+    - ``` git clone https://github.com/omarjarkas1997/Graduate-Analyst-Programmer-Code-Test.git```
+    - ```python .\app\app.py -o <CSV-File_Path>```
 - Docker
 
 Under the root directory where the docker file in contained run the following command the get a root shell of ubuntu linux the lastest verision
@@ -60,14 +60,14 @@ When inside the docker linux shell run the following command (data.csv file has 
 
 
 Argument and Option you can pass to the CLI Application
-Installed from git: ```usage: app.py [-h] [-v | -q] [-o] filepath``` 
-Installed by PyPi: ```usage: halfbricks [-h] [-v | -q] [-o] filepath```
-Docker Shell: ```usage: halfbricks [-h] [-v | -q] [-o] data.csv```
+- Installed from git: ```usage: app.py [-h] [-v | -q] [-o] filepath``` 
+- Installed by PyPi: ```usage: halfbricks [-h] [-v | -q] [-o] filepath```
+- Docker Shell: ```usage: halfbricks [-h] [-v | -q] [-o] data.csv```
 
 For more command enter 
-    Installed from git: ```app.py --help``` 
-    Installed by PyPi: ```halfbricks --help```
-    Docker Shell: ```halfbricks --help```
+-   Installed from git: ```app.py --help``` 
+-   Installed by PyPi: ```halfbricks --help```
+-   Docker Shell: ```halfbricks --help```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
