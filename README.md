@@ -1,4 +1,4 @@
-# Foobar
+# Python Cli Application 
 
 This is a simple Python Cli Application that enables the manipulation of CSV files depending on the choice of the user.
 Users are given a choice between 3 options where they have the choice to choose all.
