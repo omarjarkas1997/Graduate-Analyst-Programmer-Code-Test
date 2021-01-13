@@ -8,8 +8,11 @@ Users are given a choice between 3 options where they have the choice to choose 
 -	Input a CSV file and generate a SQL insert statement for all rows in the input
 
 1. The Application is Doctested and unitest.
-WARNING: Testing cannot be run if your install for PyPi.
+WARNING: Testing cannot be run if you installed into through PyPi.
 ```python -m unittest test.py```
+
+- Please consider running the following command to create a sandbox to install the code in 
+```python -m venv <DIRECTORY>```
 
 2. The application has a PyPi Distribution you can install from.
 ```pip command
@@ -26,11 +29,17 @@ Then you'll be promted a shell, enter the following:
 
 ## Installation
 
-Use the package manager [pip](https://pypi.org/project/GradAnalystCodeTest/0.1.2/) to install GradAnalystCodeTest Application.
+- Clone the code with 
+
+```git clone https://github.com/omarjarkas1997/Graduate-Analyst-Programmer-Code-Test.git```
+
+
+- Use the package manager [pip](https://pypi.org/project/GradAnalystCodeTest/0.1.2/) to install GradAnalystCodeTest Application.
 
 ```pip command
 pip install GradAnalystCodeTest==0.1.2
 ```
+
 
 usage:``` halfbricks [-h] [-v | -q] [-o] filepath```
 ## Usage
@@ -81,5 +90,3 @@ Copyright 2021 Pentester56
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
